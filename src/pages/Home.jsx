@@ -1,9 +1,11 @@
-const Home = () => {
-  return (
-    <>
-      <h1>Hi, I'm your phone book</h1>
-      <p>I will help you to save any phone number</p>
-    </>
-  );
+import { connect } from "react-redux";
+import GreetingMessage from "../components/GreetingMessage/GreetingMessage";
+import authSelectors from "../redux/contacts-book-selectors";
+
+const Home = (isAuthenticated) => {
+  return <>{isAuthenticated ? <></> : <GreetingMessage />}</>;
 };
-export default Home;
+const mapStateToProps = (state) => ({
+  isAuthenticated: authSelectors.getIsAuthenticated(state),
+});
+export default connect(mapStateToProps)(Home);

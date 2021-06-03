@@ -1,22 +1,35 @@
 import { Route, Switch } from "react-router";
-import Home from "./pages/Home";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Contacts from "./pages/Contacts";
+import { lazy, Suspense } from "react";
+import routes from "./routes";
+import Spinner from "./components/Spinner";
 import NavBar from "./components/NavBar";
 import Container from "./components/Container/Container";
 
+const Home = lazy(() =>
+  import("./pages/Home" /*webpackChunkName: "home-page"*/)
+);
+const Register = lazy(() =>
+  import("./pages/Register" /*webpackChunkName: "register-page"*/)
+);
+const Login = lazy(() =>
+  import("./pages/Login" /*webpackChunkName: "login-page"*/)
+);
+const Contacts = lazy(() =>
+  import("./pages/Contacts" /*webpackChunkName: "contacts-page"*/)
+);
 function App() {
   return (
     <Container>
       <div className="App">
         <NavBar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/register" component={Register} />
-          <Route path="/login" component={Login} />
-          <Route path="/contacts" component={Contacts} />
-        </Switch>
+        <Suspense fallback={<Spinner />}>
+          <Switch>
+            <Route exact path={routes.HomePage} component={Home} />
+            <Route path={routes.RegisterPage} component={Register} />
+            <Route path={routes.LoginPage} component={Login} />
+            <Route path={routes.ContactsPage} component={Contacts} />
+          </Switch>
+        </Suspense>
       </div>
     </Container>
   );
