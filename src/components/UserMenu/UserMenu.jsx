@@ -19,20 +19,25 @@ const styles = {
   },
 };
 
-const UserMenu = ({ avatar, name }) => (
-  <div style={styles.container}>
-    <img src={avatar} alt="avatar" width="32" style={styles.avatar} />
-    <span style={styles.name}>Welcome, {name}</span>
-    <button type="button">Logout</button>
-  </div>
-);
+const UserMenu = ({ avatar, name, onLogout }) => {
+  console.log(name);
+  return (
+    <div style={styles.container}>
+      <img src={avatar} alt="avatar" width="32" style={styles.avatar} />
+      <span style={styles.name}>Welcome, {name}</span>
+      <button type="button" onClick={onLogout}>
+        Logout
+      </button>
+    </div>
+  );
+};
 const mapStateToProps = (state) => ({
   name: authSelectors.getUsername(state),
   avatar: defaultAvatar,
 });
 
-// const mapDispatchToProps = {
-//   onLogout: authOperations.logOut,
-// };
+const mapDispatchToProps = {
+  onLogout: authOperations.logOut,
+};
 
-export default connect(mapStateToProps)(UserMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);

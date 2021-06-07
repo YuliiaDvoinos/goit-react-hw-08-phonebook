@@ -12,8 +12,9 @@ const useStyles = createUseStyles({
     justifyContent: "space-between",
   },
 });
-const NavBar = (isAuthenticated) => {
+const NavBar = ({ isAuthenticated }) => {
   const styles = useStyles();
+
   return (
     <header className={styles.header}>
       <div>

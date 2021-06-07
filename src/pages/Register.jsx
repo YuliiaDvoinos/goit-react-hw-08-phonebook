@@ -1,6 +1,8 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import authOperations from "../redux/contacts-book-operations.js";
+import authSelectors from "../redux/contacts-book-selectors";
+import Home from "./Home.jsx";
 
 class Register extends Component {
   state = {
@@ -21,48 +23,59 @@ class Register extends Component {
   };
   render() {
     const { name, email, password } = this.state;
+    const { isAuthenticated } = this.props;
+
     return (
       <div>
-        <h1>Страница регистрации</h1>
+        {isAuthenticated ? (
+          <Home />
+        ) : (
+          <>
+            <h1>Страница регистрации</h1>
 
-        <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <label>
-            Имя
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={this.handleChange}
-            />
-          </label>
+            <form autoComplete="off" onSubmit={this.handleSubmit}>
+              <label>
+                Имя
+                <input
+                  type="text"
+                  name="name"
+                  value={name}
+                  onChange={this.handleChange}
+                />
+              </label>
 
-          <label>
-            Почта
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-            />
-          </label>
+              <label>
+                Почта
+                <input
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={this.handleChange}
+                />
+              </label>
 
-          <label>
-            Пароль
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-            />
-          </label>
+              <label>
+                Пароль
+                <input
+                  type="password"
+                  name="password"
+                  value={password}
+                  onChange={this.handleChange}
+                />
+              </label>
 
-          <button type="submit">Зарегистрироваться</button>
-        </form>
+              <button type="submit">Зарегистрироваться</button>
+            </form>
+          </>
+        )}
       </div>
     );
   }
 }
+const mapStateToProps = (state) => ({
+  isAuthenticated: authSelectors.getIsAuthenticated(state),
+});
 const mapDispatchToProps = {
   onRegister: authOperations.register,
 };
-export default connect(null, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
