@@ -1,15 +1,7 @@
-import { createUseStyles } from "react-jss";
 import { NavLink } from "react-router-dom";
-const useStyles = createUseStyles({
-  registrationContainer: {
-    display: "flex",
-    flexDirection: "row",
-    width: 100,
-    justifyContent: "space-between",
-  },
-});
+import styles from "./auth-bar.module.css";
+
 const AuthBar = () => {
-  const styles = useStyles();
   return (
     <div className={styles.registrationContainer}>
       <NavLink to="./register">Register</NavLink>

@@ -1,11 +1,11 @@
 .container {
-  padding: 0 20px;
+  padding: 0;
   margin: 0 auto;
+  outline: 1px solid black;
 }
 @media screen and (min-width: 320px) {
   .container {
     width: 320px;
-    padding: 0 20px;
   }
 }
 @media screen and (min-width: 480px) {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import authActions from "./contacts-book-actions";
+import authActions from "./auth-actions";
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 const token = {
   set(token) {
@@ -43,4 +43,25 @@ const logOut = () => async (dispatch) => {
     dispatch(authActions.logoutError(error.message));
   }
 };
-export default { register, logIn, logOut };
+const getCurrentUser = () => async (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+
+  if (!persistedToken) {
+    return;
+  }
+
+  token.set(persistedToken);
+  dispatch(authActions.getCurrentUserRequest());
+
+  try {
+    const response = await axios.get("/users/current");
+
+    dispatch(authActions.getCurrentUserSuccess(response.data));
+  } catch (error) {
+    dispatch(authActions.getCurrentUserError(error.message));
+  }
+};
+
+export default { register, logIn, logOut, getCurrentUser };

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import authOperations from "../../redux/contacts-book-operations.js";
-import authSelectors from "../../redux/contacts-book-selectors";
+import authOperations from "../../redux/auth/auth-operations";
+import authSelectors from "../../redux/auth/auth-selectors";
 
 import defaultAvatar from "./defaul-image.png";
 
@@ -20,7 +20,6 @@ const styles = {
 };
 
 const UserMenu = ({ avatar, name, onLogout }) => {
-  console.log(name);
   return (
     <div style={styles.container}>
       <img src={avatar} alt="avatar" width="32" style={styles.avatar} />

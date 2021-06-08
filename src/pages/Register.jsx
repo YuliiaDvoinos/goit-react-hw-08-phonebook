@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import authOperations from "../redux/contacts-book-operations.js";
-import authSelectors from "../redux/contacts-book-selectors";
+import authOperations from "../redux/auth/auth-operations";
+import authSelectors from "../redux/auth/auth-selectors";
 import Home from "./Home.jsx";
 
 class Register extends Component {
