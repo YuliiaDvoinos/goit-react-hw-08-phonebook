@@ -1,4 +1,90 @@
-.contactsBookContainer {
+/* greeting component */
+.greetingContainer {
+  background-color: #c2d4dd;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 320px;
+  padding: 30px;
+}
+.greetingTitle {
+  margin: 0;
+  color: #3e7671;
+  /* text-decoration: underline; */
+}
+.greetingDescr {
+  margin: 0;
+  color: #637174;
+}
+.greetingSpan {
+  font-weight: bold;
+  text-decoration: underline;
+}
+/* user menu */
+.userContainer {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
+}
+.avatar {
+  margin-right: 4px;
+}
+.name {
+}
+.userInfo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #a37a8a;
+}
+.userNameSpan {
+  font-weight: bold;
+
+  display: block;
+}
+.userBtn {
+  align-self: center;
+  margin-top: 5px;
+  width: 60px;
+  background: #a37a8a;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  color: white;
+}
+.userBtn:hover {
+  border: 1px solid white;
+}
+/* contacts book */
+.contactsBookContainer {
+  padding: 30px 10px;
+}
+@media screen and (min-width: 768px) {
+  .greetingContainer {
+    min-height: 700px;
+  }
+  .greetingTitle {
+    font-size: 70px;
+  }
+  .greetingDescr {
+    font-size: 25px;
+  }
+  .avatar {
+    width: 50px;
+  }
+  .userInfo {
+    font-size: 24px;
+  }
+  .userBtn {
+    width: 100px;
+    font-size: 20px;
+    padding: 5px;
+  }
+  .name {
+    display: flex;
+  }
+  .userNameSpan {
+    margin-left: 5px;
+  }
+}
+@media screen and (min-width: 1024px) {
 }

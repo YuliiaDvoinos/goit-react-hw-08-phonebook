@@ -14,14 +14,16 @@ const ContactsList = ({ contacts, onDelete, isAuthenticated }) => {
   const murkup = (
     <>
       <div className={styles.contactsListContainer}>
-        {contacts.length > 1 ? <Filter /> : null}
+        <Filter />
 
         <ul className={styles.list}>
           {contacts.map(({ id, name, number }) => {
             return (
               <li key={id} className={styles.item}>
-                <p className={styles.contactsDetails}>{name}</p>
-                <p className={styles.contactsDetails}>{number}</p>
+                <div className={styles.itemDetailsContainer}>
+                  <p className={styles.contactsDetails}>{name}</p>
+                  <p className={styles.contactsDetails}>{number}</p>
+                </div>
                 <button
                   type="button"
                   className={styles.deleteBtn}

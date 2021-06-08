@@ -1,4 +1,6 @@
 import styles from "./common.module.css";
+import background from "../images/background.jpeg";
+
 //redux imports
 import { connect } from "react-redux";
 import { operations, getLoading } from "../redux/ContactsBook";
@@ -17,7 +19,10 @@ class ContactsPage extends Component {
       <Container>
         {this.props.isLoadingContacts && <Spinner />}
 
-        <div className={styles.contactsBookContainer}>
+        <div
+          style={{ backgroundImage: `url(${background})` }}
+          className={`${styles.greetingContainer} ${styles.contactsBookContainer}`}
+        >
           <Form />
           <ContactsList />
         </div>

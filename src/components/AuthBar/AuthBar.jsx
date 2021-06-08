@@ -4,8 +4,12 @@ import styles from "./auth-bar.module.css";
 const AuthBar = () => {
   return (
     <div className={styles.registrationContainer}>
-      <NavLink to="./register">Register</NavLink>
-      <NavLink to="./login">Login</NavLink>
+      <NavLink to="./register" className={styles.authLink}>
+        Register
+      </NavLink>
+      <NavLink to="./login" className={styles.authLink}>
+        Login
+      </NavLink>
     </div>
   );
 };

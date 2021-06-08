@@ -14,7 +14,9 @@ const NavBar = ({ isAuthenticated }) => {
           Home
         </NavLink>
         {isAuthenticated ? (
-          <NavLink to={routes.ContactsPage}>Contacts</NavLink>
+          <NavLink to={routes.ContactsPage} className={styles.contacts}>
+            Contacts
+          </NavLink>
         ) : (
           <></>
         )}

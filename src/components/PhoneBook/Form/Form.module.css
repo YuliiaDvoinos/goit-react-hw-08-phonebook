@@ -6,15 +6,16 @@
   justify-content: center;
   align-items: center;
   border: 1px solid cadetblue;
-  padding: 10px;
 }
 .label {
   margin-top: 20px;
+  width: 250px;
   display: block;
+  text-align: center;
 }
 .input {
+  width: 240px;
   font-size: 10px;
-  width: 200px;
   padding: 5px;
   margin-top: 10px;
   display: block;
@@ -27,11 +28,11 @@
   text-transform: uppercase;
   height: 50px;
   border: 1px solid cadetblue;
-  background: transparent;
-  color: cadetblue;
+  background: cadetblue;
+  color: white;
 }
 .addBtn:hover {
-  background-color: cadetblue;
-  color: #e6e2d3;
+  background-color: rgb(138, 113, 134);
+
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }

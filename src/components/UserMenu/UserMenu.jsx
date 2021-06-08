@@ -1,31 +1,37 @@
+import styles from "../../pages/common.module.css";
+
 import React from "react";
 import { connect } from "react-redux";
 import authOperations from "../../redux/auth/auth-operations";
 import authSelectors from "../../redux/auth/auth-selectors";
 
-import defaultAvatar from "./defaul-image.png";
+import defaultAvatar from "./default.png";
 
-const styles = {
-  container: {
-    display: "flex",
-    alignItems: "center",
-  },
-  avatar: {
-    marginRight: 4,
-  },
-  name: {
-    fontWeight: 700,
-    marginRight: 12,
-  },
-};
+// const styles = {
+//   container: {
+//     display: "flex",
+//     alignItems: "center",
+//   },
+//   avatar: {
+//     marginRight: 4,
+//   },
+//   name: {
+//     fontWeight: 700,
+//     marginRight: 12,
+//   },
+// };
 
 const UserMenu = ({ avatar, name, onLogout }) => {
   return (
-    <div style={styles.container}>
-      <img src={avatar} alt="avatar" width="32" style={styles.avatar} />
-      <span style={styles.name}>Welcome, {name}</span>
-      <button type="button" onClick={onLogout}>
-        Logout
+    <div className={styles.userContainer}>
+      <div className={styles.userInfo}>
+        <img src={avatar} alt="avatar" width="32" className={styles.avatar} />
+        <span className={styles.name}>
+          Welcome, <span className={styles.userNameSpan}> {name} </span>
+        </span>
+      </div>
+      <button type="button" onClick={onLogout} className={styles.userBtn}>
+        logout
       </button>
     </div>
   );
