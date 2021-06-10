@@ -1,3 +1,5 @@
+import styles from "./common.module.css";
+
 import { Component } from "react";
 import { connect } from "react-redux";
 import authOperations from "../redux/auth/auth-operations";
@@ -25,17 +27,21 @@ class Login extends Component {
     const { email, password } = this.state;
     const { isAuthenticated } = this.props;
     return (
-      <div>
+      <div className={styles.loginContainer}>
         {isAuthenticated ? (
           <Home />
         ) : (
           <>
-            {" "}
-            <h1>Страница логина</h1>
-            <form autoComplete="off" onSubmit={this.handleSubmit}>
-              <label>
-                Почта
+            <h1 className={styles.loginTitle}>Login page</h1>
+            <form
+              className={styles.loginForm}
+              autoComplete="off"
+              onSubmit={this.handleSubmit}
+            >
+              <label className={styles.loginLabel}>
+                Enter your email
                 <input
+                  className={styles.loginInput}
                   type="email"
                   name="email"
                   value={email}
@@ -43,9 +49,10 @@ class Login extends Component {
                 />
               </label>
 
-              <label>
-                Пароль
+              <label className={styles.loginLabel}>
+                Enter your password
                 <input
+                  className={styles.loginInput}
                   type="password"
                   name="password"
                   value={password}
@@ -53,7 +60,9 @@ class Login extends Component {
                 />
               </label>
 
-              <button type="submit">Войти</button>
+              <button type="submit" className={styles.loginBtn}>
+                Login
+              </button>
             </form>
           </>
         )}

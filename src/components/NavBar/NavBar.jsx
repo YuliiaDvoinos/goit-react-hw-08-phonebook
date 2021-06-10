@@ -9,19 +9,20 @@ import styles from "./nav-bar.module.css";
 const NavBar = ({ isAuthenticated }) => {
   return (
     <header className={styles.header}>
-      <div className={styles.nav}>
-        <NavLink to="/" className={styles.home}>
-          Home
-        </NavLink>
-        {isAuthenticated ? (
-          <NavLink to={routes.ContactsPage} className={styles.contacts}>
-            Contacts
+      <div className={styles.headerContainer}>
+        <div className={styles.nav}>
+          <NavLink to="/" className={styles.home}>
+            Home
           </NavLink>
-        ) : (
-          <></>
-        )}
+          {isAuthenticated && (
+            <NavLink to={routes.ContactsPage} className={styles.contacts}>
+              Contacts
+            </NavLink>
+          )}
+        </div>
+
+        {isAuthenticated ? <UserMenu /> : <AuthBar />}
       </div>
-      {isAuthenticated ? <UserMenu /> : <AuthBar />}
     </header>
   );
 };

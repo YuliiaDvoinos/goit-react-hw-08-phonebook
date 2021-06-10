@@ -35,3 +35,14 @@
   width: 200px;
   padding: 5px; */
 }
+@media screen and (min-width: 768px) {
+  .container {
+    width: 338px;
+    margin: 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 438px;
+  }
+}

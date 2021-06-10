@@ -37,9 +37,20 @@
   border: 1px solid cadetblue;
   background: transparent;
   color: #a37a8a;
+  padding: 3px;
 }
 .deleteBtn:hover {
   background-color: cadetblue;
   color: white;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+@media screen and (min-width: 768px) {
+  .contactsListContainer {
+    width: 350px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .contactsListContainer {
+    width: 450px;
+  }
 }

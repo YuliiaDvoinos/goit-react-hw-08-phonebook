@@ -1,11 +1,17 @@
+//react imports
 import { Route, Switch } from "react-router";
 import { Component, lazy, Suspense } from "react";
-import routes from "./routes";
+//redux imports
+import authOperations from "./redux/auth/auth-operations";
+import { connect } from "react-redux";
+//components imports
 import Spinner from "./components/Spinner";
 import NavBar from "./components/NavBar";
 import Container from "./components/Container/Container";
-import authOperations from "./redux/auth/auth-operations";
-import { connect } from "react-redux";
+//other imports
+import routes from "./routes";
+import PrivateRoute from "./components/PrivateRoute";
+import PublicRoute from "./components/PublicRoute";
 
 const Home = lazy(() =>
   import("./pages/Home" /*webpackChunkName: "home-page"*/)
@@ -25,19 +31,33 @@ class App extends Component {
   }
   render() {
     return (
-      <Container>
-        <div className="App">
-          <NavBar />
+      <div className="App">
+        <NavBar />
+        <Container>
           <Suspense fallback={<Spinner />}>
             <Switch>
               <Route exact path={routes.HomePage} component={Home} />
-              <Route path={routes.RegisterPage} component={Register} />
-              <Route path={routes.LoginPage} component={Login} />
-              <Route path={routes.ContactsPage} component={ContactsPage} />
+              <PublicRoute
+                restricted
+                path={routes.RegisterPage}
+                redirectTo={routes.ContactsPage}
+                component={Register}
+              />
+              <PublicRoute
+                restricted
+                path={routes.LoginPage}
+                redirectTo={routes.ContactsPage}
+                component={Login}
+              />
+              <PrivateRoute
+                path={routes.ContactsPage}
+                redirectTo={routes.LoginPage}
+                component={ContactsPage}
+              />
             </Switch>
           </Suspense>
-        </div>
-      </Container>
+        </Container>
+      </div>
     );
   }
 }

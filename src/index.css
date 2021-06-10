@@ -6,7 +6,7 @@
 }
 body {
   color: black;
-  background-color: white;
+  background-color: #dae4ed;
 }
 body.modal-open {
   overflow: hidden;

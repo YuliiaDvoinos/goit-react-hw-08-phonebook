@@ -1,3 +1,5 @@
+import styles from "./common.module.css";
+
 import { Component } from "react";
 import { connect } from "react-redux";
 import authOperations from "../redux/auth/auth-operations";
@@ -30,13 +32,18 @@ class Register extends Component {
         {isAuthenticated ? (
           <Home />
         ) : (
-          <>
-            <h1>Страница регистрации</h1>
+          <div className={styles.registrationContainer}>
+            <h1 className={styles.registrationTitle}>Registration page</h1>
 
-            <form autoComplete="off" onSubmit={this.handleSubmit}>
-              <label>
-                Имя
+            <form
+              className={styles.registrationForm}
+              autoComplete="off"
+              onSubmit={this.handleSubmit}
+            >
+              <label className={styles.registrationLabel}>
+                Enter your name
                 <input
+                  className={styles.registrationInput}
                   type="text"
                   name="name"
                   value={name}
@@ -44,9 +51,10 @@ class Register extends Component {
                 />
               </label>
 
-              <label>
-                Почта
+              <label className={styles.registrationLabel}>
+                Enter your email address
                 <input
+                  className={styles.registrationInput}
                   type="email"
                   name="email"
                   value={email}
@@ -54,9 +62,10 @@ class Register extends Component {
                 />
               </label>
 
-              <label>
-                Пароль
+              <label className={styles.registrationLabel}>
+                Enter your password
                 <input
+                  className={styles.registrationInput}
                   type="password"
                   name="password"
                   value={password}
@@ -64,9 +73,11 @@ class Register extends Component {
                 />
               </label>
 
-              <button type="submit">Зарегистрироваться</button>
+              <button className={styles.registrationBtn} type="submit">
+                Register
+              </button>
             </form>
-          </>
+          </div>
         )}
       </div>
     );

@@ -31,7 +31,7 @@ const UserMenu = ({ avatar, name, onLogout }) => {
         </span>
       </div>
       <button type="button" onClick={onLogout} className={styles.userBtn}>
-        logout
+        Logout
       </button>
     </div>
   );

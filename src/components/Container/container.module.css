@@ -1,7 +1,6 @@
 .container {
   padding: 0;
   margin: 0 auto;
-  outline: 1px solid black;
 }
 @media screen and (min-width: 320px) {
   .container {
