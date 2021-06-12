@@ -1,5 +1,7 @@
 .container {
   margin-top: 20px;
+  margin-bottom: 20px;
+
   padding: 20px 5px;
   border: 1px solid cadetblue;
   background-color: #d5e2ea;
@@ -39,10 +41,12 @@
   .container {
     width: 338px;
     margin: 0;
+    margin-bottom: 20px;
   }
 }
 @media screen and (min-width: 1024px) {
   .container {
     width: 438px;
+    margin-bottom: 20px;
   }
 }

@@ -38,8 +38,13 @@ const ContactsList = ({ contacts, onDelete, isAuthenticated }) => {
       </div>
     </>
   );
-  if (contacts.length === 0) {
-    return <Message />;
+  if (contacts.length < 1) {
+    return (
+      <div className={styles.contactsListContainer}>
+        <Filter />
+        <Message />
+      </div>
+    );
   }
   return murkup;
 };
